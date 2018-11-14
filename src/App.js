@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MainButtons from './MainButtons.js';
+import Training from './Training.js';
+import TrainingData from './TrainingData.js';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      onToggle: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+    
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <main>
+        <MainButtons />
+        <Training />
+        <TrainingData />
+      </main>
       </div>
     );
   }
+
+handleClick = () =>{
+  this.setState ({
+    onToggle: !this.state.onToggle,
+  });
+}
+
 }
 
 export default App;
